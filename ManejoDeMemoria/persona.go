@@ -49,11 +49,8 @@ func (per *Persona) Destruir() {
 	if per ==  nil {
 	return //Si llegamos hasta aca, signfica que la cadena "murio" (es decir que no hay mas hijos)
 	}
-	per.hij_mayor.Destruir()
-	administrador.LiberarMemoria[Persona](per.hij_mayor)
-
 	per.hij_menor.Destruir()
-	administrador.LiberarMemoria[Persona](per.hij_menor)
-	//per.Destruir()
+	per.hij_mayor.Destruir()
+	administrador.LiberarMemoria[Persona](per)
 
 }
