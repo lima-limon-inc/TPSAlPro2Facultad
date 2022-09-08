@@ -24,7 +24,7 @@ func (vector *Vector) Redimensionar(tam_nuevo int) {
 // Destruir Destruye la memoria asociada al vector
 func (vector *Vector) Destruir() {
 	administrador.LiberarArreglo[int](vector.datos) //Libera la emmoria asociada a la lista del vector
-	administrador.LiberarMemoria[Vector](vector)  //Libera la memoria asociada al vector en si mismo
+	administrador.LiberarMemoria[Vector](vector)    //Libera la memoria asociada al vector en si mismo
 }
 
 // Largo devuelve el largo de este vector
@@ -36,7 +36,7 @@ func (vector Vector) Largo() int {
 // Guardar guarda el elemento pasado por parámetro en la posición indicada, si esta es válida.
 // Si no es válida, entonces entra en pánico con un mensaje "Fuera de rango".
 func (vector *Vector) Guardar(pos int, elem int) {
-	if vector.Largo() == 0 || vector.Largo() - 1< pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
+	if vector.Largo() == 0 || vector.Largo()-1 < pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
 		panic("Fuera de rango")
 	}
 	(*vector.datos)[pos] = elem //Cambio el elemento de acuerdo  a lo pasado
@@ -45,10 +45,10 @@ func (vector *Vector) Guardar(pos int, elem int) {
 // Obtener obtiene el elemento guardado en la posición indicada, si esta es válida.
 // Si no es válida, entonces entra en pánico con un mensaje "Fuera de rango".
 func (vector Vector) Obtener(pos int) int {
-	if vector.Largo() == 0 || vector.Largo() - 1< pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
+	if vector.Largo() == 0 || vector.Largo()-1 < pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
 		panic("Fuera de rango")
 	}
-	
+
 	var elem int = (*vector.datos)[pos] //Accedo al dato pedido
 	return elem
 }
