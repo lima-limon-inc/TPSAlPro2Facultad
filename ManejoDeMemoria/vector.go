@@ -29,7 +29,8 @@ func (vector *Vector) Destruir() {
 
 // Largo devuelve el largo de este vector
 func (vector Vector) Largo() int {
-	return 0
+	var largo int = len(*vector.datos)
+	return largo
 }
 
 // Guardar guarda el elemento pasado por parámetro en la posición indicada, si esta es válida.
