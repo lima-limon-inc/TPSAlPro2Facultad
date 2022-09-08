@@ -2,7 +2,6 @@ package admmemoria
 
 import (
 	"administracionmemoria/administrador"
-//	"fmt"
 )
 
 type Vector struct {
@@ -36,11 +35,18 @@ func (vector Vector) Largo() int {
 // Guardar guarda el elemento pasado por parámetro en la posición indicada, si esta es válida.
 // Si no es válida, entonces entra en pánico con un mensaje "Fuera de rango".
 func (vector *Vector) Guardar(pos int, elem int) {
+	if vector.Largo() == 0 || vector.Largo() < pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
+		panic("Fuera de rango")
+	}
+
 
 }
 
 // Obtener obtiene el elemento guardado en la posición indicada, si esta es válida.
 // Si no es válida, entonces entra en pánico con un mensaje "Fuera de rango".
 func (vector Vector) Obtener(pos int) int {
+	if vector.Largo() == 0 || vector.Largo() < pos { //Chequea que el vector no sea nulo y que la posicion pasada no sea mayor a la del largo del vector
+		panic("Fuera de rango")
+	}
 	return 0
 }
