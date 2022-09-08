@@ -2,6 +2,7 @@ package admmemoria
 
 import (
 	"administracionmemoria/administrador"
+//	"fmt"
 )
 
 type Vector struct {
@@ -22,7 +23,8 @@ func (vector *Vector) Redimensionar(tam_nuevo int) {
 
 // Destruir Destruye la memoria asociada al vector
 func (vector *Vector) Destruir() {
-
+	administrador.LiberarArreglo[int](vector.datos) //Libera la emmoria asociada a la lista del vector
+	administrador.LiberarMemoria[Vector](vector)  //Libera la memoria asociada al vector en si mismo
 }
 
 // Largo devuelve el largo de este vector
