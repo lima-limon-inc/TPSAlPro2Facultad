@@ -3,7 +3,7 @@ package pila
 type Pila[T any] interface {
 
 	// EstaVacia devuelve verdadero si la pila no tiene elementos apilados, false en caso contrario.
-	//	EstaVacia() bool
+	EstaVacia() bool
 
 	// VerTope obtiene el valor del tope de la pila. Si la pila tiene elementos se devuelve el valor del tope.
 	// Si está vacía, entra en pánico con un mensaje "La pila esta vacia".
