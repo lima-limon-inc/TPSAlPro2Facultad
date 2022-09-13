@@ -1,9 +1,8 @@
 package tp0
 
-
 // Swap intercambia dos valores enteros.
 func Swap(x *int, y *int) {
-	*x, *y = *y, *x // Hago un intercambio de las variables. Ahora el x va a apuntar a donde apunta y; y viceversa
+	*x, *y = *y, *x
 }
 
 // Maximo devuelve la posición del mayor elemento del arreglo, o -1 si el el arreglo es de largo 0. Si el máximo
@@ -14,26 +13,13 @@ func Maximo(vector []int) int {
 	}
 	var max int = vector[0]
 	var pos int = 0
-	for i := 0; i < len(vector); i++ {
+	for i := 1; i < len(vector); i++ {
 		if vector[i] > max {
 			max = vector[i]
 			pos = i
 		}
 	}
 	return pos
-}
-
-func Maximo2(vector []int) int {
-	if len(vector) <= 0 {
-		return -1
-	}
-	var pos_max int = 0
-	for i := 0; i < len(vector); i++ {
-		if vector[i] > vector[pos_max] {
-			pos_max = i
-		}
-	}
-	return pos_max
 }
 
 // Comparar compara dos arreglos de longitud especificada.
@@ -63,15 +49,15 @@ func Comparar(vector1 []int, vector2 []int) int {
 // Seleccion ordena el arreglo recibido mediante el algoritmo de selección.
 func Seleccion(vector []int) {
 	var long int = len(vector)
-	for i := long - 1; i >  0; i-- {
-		var maximo int = Maximo(vector[0:i+1])
+	for i := long - 1; i > 0; i-- {
+		var maximo int = Maximo(vector[0 : i+1])
 		Swap(&vector[i], &vector[maximo])
-//		
-//		for j := i; j < long; j++ {
-//			if vector[j] < vector[minimo] {
-//				minimo = j
-//			}
-//		}
+		//
+		//		for j := i; j < long; j++ {
+		//			if vector[j] < vector[minimo] {
+		//				minimo = j
+		//			}
+		//		}
 	}
 }
 
@@ -79,13 +65,9 @@ func Seleccion(vector []int) {
 // Esta función debe implementarse de forma RECURSIVA. Se puede usar una función auxiliar (que sea
 // la recursiva).
 func Suma(vector []int) int {
-	if len(vector) <= 0 {
+	if len(vector) == 0 {
 		return 0
 	}
-	if len(vector) == 1 {
-		return vector[0]
-	}
-
 	return vector[0] + Suma(vector[1:])
 }
 
