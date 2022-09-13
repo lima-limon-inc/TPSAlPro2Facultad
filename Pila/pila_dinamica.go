@@ -8,7 +8,10 @@ type pilaDinamica[T any] struct {
 }
 
 func CrearPilaDinamica[T any]() Pila[T] {
-	pila := new(pilaDinamica[T]) // ACA esta el cambio
-	// hago lo que deba hacer
+	pila := new(pilaDinamica[T])
 	return pila
+}
+
+func (pila pilaDinamica[T]) EstaVacia() bool {
+	return true
 }
