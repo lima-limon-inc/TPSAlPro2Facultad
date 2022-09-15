@@ -20,3 +20,10 @@ func (pila *pilaDinamica[T]) EstaVacia() bool {
 		return false
 	}
 }
+
+func (pila *pilaDinamica[T]) VerTope() int {
+	if pila.cantidad == 0 {
+		panic("La pila esta vacia")
+	}
+	return pila.datos[pila.cantidad - 1] //Restamos 1 porque la cantidad siempre es mayor, ya que tambien se tiene que contar al item 0 como 1er item
+}
