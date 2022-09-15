@@ -12,6 +12,11 @@ func CrearPilaDinamica[T any]() Pila[T] {
 	return pila
 }
 
-func (pila pilaDinamica[T]) EstaVacia() bool {
-	return true
+func (pila *pilaDinamica[T]) EstaVacia() bool {
+	switch pila.cantidad {
+	case 0:
+		return true
+	default:
+		return false
+	}
 }

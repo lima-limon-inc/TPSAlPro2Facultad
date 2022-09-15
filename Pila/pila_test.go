@@ -10,4 +10,3 @@ func TestPilaVacia(t *testing.T) {
 	pila := TDAPila.CrearPilaDinamica[int]()
 	fmt.Println(pila.EstaVacia())
 }
-TestPilaVacia(testing
