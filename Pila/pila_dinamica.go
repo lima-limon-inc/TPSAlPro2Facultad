@@ -1,6 +1,5 @@
 package pila
 
-
 /* Definición del struct pila proporcionado por la cátedra. */
 const capacidadInicial = 8 //Elijo una potencia de 2 para facilitar las cuentas con enteros a futuro. Sobre todo considerando que voy a multiplicar y dividir por dos
 
@@ -58,10 +57,10 @@ func (pila *pilaDinamica[T]) Apilar(elem T) {
 }
 
 func (pila *pilaDinamica[T]) Desapilar() T {
+	var tope T = pila.VerTope()            //Me guardo la variable antes de nada para paniquear en los casos de pila vacia
 	if pila.cantidad*4 == pila.capacidad { //Quiero ver si se cumple la condicion de redimension para liberar memoria
 		pila.redimensionar("-")
 	}
-	// DESAPILAR
 	pila.cantidad -= 1 //Aumento la cantidad
-	return pila.VerTope()
+	return tope
 }
