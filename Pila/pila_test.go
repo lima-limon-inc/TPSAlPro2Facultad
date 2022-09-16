@@ -1,7 +1,6 @@
 package pila_test
 
 import (
-	//	"fmt"
 	"github.com/stretchr/testify/require"
 	TDAPila "pila"
 	"testing"
