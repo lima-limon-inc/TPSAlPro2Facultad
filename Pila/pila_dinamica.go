@@ -16,7 +16,7 @@ func CrearPilaDinamica[T any]() Pila[T] {
 	pila.cantidad = 0
 	pila.capacidad = capacidadInicial
 	pila.datos = make([]T, pila.capacidad) //Creo el array con len=0 y cap = capacidadInicial
-	fmt.Println(pila)
+	//fmt.Println(pila)
 	return pila
 }
 
@@ -32,11 +32,6 @@ func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
 		redimension = 1
 	}
 	fmt.Println("REDIMENSIONAR")
-	fmt.Println(redimension)
-	fmt.Println(redimension / 2)
-	fmt.Println(pila.capacidad)
-	fmt.Println(pila.capacidad / 2)
-	fmt.Println(pila.capacidad / 2 * redimension)
 	nuevoArray := make([]T, pila.capacidad/2*redimension) //Creo un nuevo array con una distinta capacidad. Siempre dividio pila.capacidad a la mitad. Si quiero dejarla a la mitad, lo multiplico por 1 (redimension); y si quiero el doble, lo multiplico por 4 (redimension)
 	fmt.Println("ANTES")
 	fmt.Println("nuevoArray")
@@ -49,18 +44,19 @@ func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
 	fmt.Println(nuevoArray)
 	fmt.Println("pila.datos")
 	fmt.Println(pila.datos)
-	fmt.Println("CAMBIO EL ARRAY DE LA PILA")
-	fmt.Println("Antes")
-	fmt.Println(pila)
-	fmt.Println("Despues")
+	//fmt.Println("CAMBIO EL ARRAY DE LA PILA")
+	//fmt.Println("Antes")
+	//fmt.Println(pila)
+	//fmt.Println("Despues")
+	pila.capacidad = cap(nuevoArray)
 	pila.datos = nuevoArray
-	fmt.Println(pila)
+	//fmt.Println(pila)
 
 }
 
 func (pila *pilaDinamica[T]) EstaVacia() bool {
-	fmt.Println("LLAMO A ESTAVACIA")
-	fmt.Println(pila)
+	//fmt.Println("LLAMO A ESTAVACIA")
+	//fmt.Println(pila)
 	switch pila.cantidad {
 	case 0:
 		return true
@@ -77,10 +73,10 @@ func (pila *pilaDinamica[T]) VerTope() T {
 }
 
 func (pila *pilaDinamica[T]) Apilar(elem T) {
-	fmt.Println("LLAMO A APILAR")
+	//fmt.Println("LLAMO A APILAR")
 	if pila.cantidad == pila.capacidad { //Quiero ver si la cantidad va a ser igual a la capacidad de esta funcion asi la redimensiono
-		fmt.Println("redimensionar")
-		//pila.redimensionar("+")
+		//fmt.Println("redimensionar")
+		pila.redimensionar("+")
 	}
 	pila.datos[pila.cantidad] = elem //Asigno el elemento pasado al ultimo elemento de la lista
 	pila.cantidad += 1               //Aumento la cantidad
@@ -88,11 +84,10 @@ func (pila *pilaDinamica[T]) Apilar(elem T) {
 }
 
 func (pila *pilaDinamica[T]) Desapilar() T {
-	fmt.Println("LLAMO A DESAPILAR")
-	pila.redimensionar("-")
+	//fmt.Println("LLAMO A DESAPILAR")
 	if pila.cantidad*4 == pila.capacidad { //Quiero ver si se cumple la condicion de redimension para liberar memoria
-		fmt.Println("redimensionar")
-		//pila.redimensionar("-")
+		//fmt.Println("redimensionar")
+		pila.redimensionar("-")
 	}
 	// DESAPILAR
 	pila.cantidad -= 1 //Aumento la cantidad
