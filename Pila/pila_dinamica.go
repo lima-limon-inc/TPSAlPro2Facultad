@@ -15,7 +15,6 @@ func CrearPilaDinamica[T any]() Pila[T] {
 	pila.cantidad = 0
 	pila.capacidad = capacidadInicial
 	pila.datos = make([]T, pila.capacidad) //Creo el array con len=0 y cap = capacidadInicial
-	//fmt.Println(pila)
 	return pila
 }
 
@@ -30,26 +29,10 @@ func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
 
 		redimension = 1
 	}
-	fmt.Println("REDIMENSIONAR")
 	nuevoArray := make([]T, pila.capacidad/2*redimension) //Creo un nuevo array con una distinta capacidad. Siempre dividio pila.capacidad a la mitad. Si quiero dejarla a la mitad, lo multiplico por 1 (redimension); y si quiero el doble, lo multiplico por 4 (redimension)
-	fmt.Println("ANTES")
-	fmt.Println("nuevoArray")
-	fmt.Println(nuevoArray)
-	fmt.Println("pila.datos")
-	fmt.Println(pila.datos)
 	copy(nuevoArray, pila.datos)
-	fmt.Println("DESPUES")
-	fmt.Println("nuevoArray")
-	fmt.Println(nuevoArray)
-	fmt.Println("pila.datos")
-	fmt.Println(pila.datos)
-	//fmt.Println("CAMBIO EL ARRAY DE LA PILA")
-	//fmt.Println("Antes")
-	//fmt.Println(pila)
-	//fmt.Println("Despues")
 	pila.capacidad = cap(nuevoArray)
 	pila.datos = nuevoArray
-	//fmt.Println(pila)
 
 }
 
@@ -79,7 +62,6 @@ func (pila *pilaDinamica[T]) Apilar(elem T) {
 
 func (pila *pilaDinamica[T]) Desapilar() T {
 	if pila.cantidad*4 == pila.capacidad { //Quiero ver si se cumple la condicion de redimension para liberar memoria
-		//fmt.Println("redimensionar")
 		pila.redimensionar("-")
 	}
 	// DESAPILAR
