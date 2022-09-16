@@ -13,20 +13,36 @@ type pilaDinamica[T any] struct {
 
 func CrearPilaDinamica[T any]() Pila[T] {
 	pila := new(pilaDinamica[T])
-	pila.datos = make([]T, capacidadInicial) //Creo el array con len=0 y cap = capacidadInicial
 	pila.cantidad = 0
 	pila.capacidad = capacidadInicial
+	pila.datos = make([]T, pila.capacidad) //Creo el array con len=0 y cap = capacidadInicial
 	fmt.Println(pila)
 	return pila
 }
 
-//func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
-//switch cuanto {
-//	case "+": //El array tiene que duplicarse
-//		pila.capacidad = pila.capacidad * 2
-//	case "-": //El array tiene que demediarse
-//		pila.capacidad = (pila.capacidad / 2)
-//}
+func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
+	fmt.Println("REDIMENSIONAR")
+	nuevoArray := make([]T, 16) //Creo el array con len=0 y cap = capacidadInicial
+	copy(nuevoArray, pila.datos)
+	fmt.Println(nuevoArray)
+	fmt.Println(cuanto)
+	fmt.Println("ANTES")
+	fmt.Println(pila.datos)
+	pila.datos = nuevoArray
+	fmt.Println("DESPUES")
+	fmt.Println(pila.datos)
+
+	// var redimension int //Variable que me va indicar cuanto redimensionar
+	// switch cuanto {
+	// case "+": //El array tiene que duplicarse
+	//
+	//	redimension = 4
+	//
+	// case "-": //El array tiene que demediarse
+	//
+	//		redimension = 2
+	//	}
+}
 
 func (pila *pilaDinamica[T]) EstaVacia() bool {
 	fmt.Println("LLAMO A ESTAVACIA")
@@ -59,6 +75,7 @@ func (pila *pilaDinamica[T]) Apilar(elem T) {
 
 func (pila *pilaDinamica[T]) Desapilar() T {
 	fmt.Println("LLAMO A DESAPILAR")
+	pila.redimensionar("-")
 	if pila.cantidad*4 == pila.capacidad { //Quiero ver si se cumple la condicion de redimension para liberar memoria
 		fmt.Println("redimensionar")
 		//pila.redimensionar("-")

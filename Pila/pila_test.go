@@ -26,6 +26,5 @@ func TestCantBajaElementos(t *testing.T) {
 	pila.Apilar(8)
 	require.EqualValues(t, 8, pila.VerTope())
 	pila.Desapilar()
-	pila.Desapilar()
-	require.EqualValues(t, 6, pila.VerTope())
+	require.EqualValues(t, 5, pila.VerTope())
 }
