@@ -21,27 +21,41 @@ func CrearPilaDinamica[T any]() Pila[T] {
 }
 
 func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
-	fmt.Println("REDIMENSIONAR")
-	nuevoArray := make([]T, 16) //Creo el array con len=0 y cap = capacidadInicial
-	copy(nuevoArray, pila.datos)
-	fmt.Println(nuevoArray)
-	fmt.Println(cuanto)
-	fmt.Println("ANTES")
-	fmt.Println(pila.datos)
-	pila.datos = nuevoArray
-	fmt.Println("DESPUES")
-	fmt.Println(pila.datos)
+	var redimension int //Variable que me va indicar cuanto redimensionar
+	switch cuanto {
+	case "+": //El array tiene que duplicarse
 
-	// var redimension int //Variable que me va indicar cuanto redimensionar
-	// switch cuanto {
-	// case "+": //El array tiene que duplicarse
-	//
-	//	redimension = 4
-	//
-	// case "-": //El array tiene que demediarse
-	//
-	//		redimension = 2
-	//	}
+		redimension = 4
+
+	case "-": //El array tiene que demediarse
+
+		redimension = 1
+	}
+	fmt.Println("REDIMENSIONAR")
+	fmt.Println(redimension)
+	fmt.Println(redimension / 2)
+	fmt.Println(pila.capacidad)
+	fmt.Println(pila.capacidad / 2)
+	fmt.Println(pila.capacidad / 2 * redimension)
+	nuevoArray := make([]T, pila.capacidad/2*redimension) //Creo un nuevo array con una distinta capacidad. Siempre dividio pila.capacidad a la mitad. Si quiero dejarla a la mitad, lo multiplico por 1 (redimension); y si quiero el doble, lo multiplico por 4 (redimension)
+	fmt.Println("ANTES")
+	fmt.Println("nuevoArray")
+	fmt.Println(nuevoArray)
+	fmt.Println("pila.datos")
+	fmt.Println(pila.datos)
+	copy(nuevoArray, pila.datos)
+	fmt.Println("DESPUES")
+	fmt.Println("nuevoArray")
+	fmt.Println(nuevoArray)
+	fmt.Println("pila.datos")
+	fmt.Println(pila.datos)
+	fmt.Println("CAMBIO EL ARRAY DE LA PILA")
+	fmt.Println("Antes")
+	fmt.Println(pila)
+	fmt.Println("Despues")
+	pila.datos = nuevoArray
+	fmt.Println(pila)
+
 }
 
 func (pila *pilaDinamica[T]) EstaVacia() bool {
