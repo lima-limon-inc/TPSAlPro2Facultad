@@ -24,11 +24,8 @@ func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
 	var redimension int //Variable que me va indicar cuanto redimensionar
 	switch cuanto {
 	case "+": //El array tiene que duplicarse
-
 		redimension = 4
-
 	case "-": //El array tiene que demediarse
-
 		redimension = 1
 	}
 	fmt.Println("REDIMENSIONAR")
@@ -44,10 +41,10 @@ func (pila *pilaDinamica[T]) redimensionar(cuanto string) {
 	fmt.Println(nuevoArray)
 	fmt.Println("pila.datos")
 	fmt.Println(pila.datos)
-	//fmt.Println("CAMBIO EL ARRAY DE LA PILA")
-	//fmt.Println("Antes")
-	//fmt.Println(pila)
-	//fmt.Println("Despues")
+	fmt.Println("CAMBIO EL ARRAY DE LA PILA")
+	fmt.Println("Antes")
+	fmt.Println(pila)
+	fmt.Println("Despues")
 	pila.capacidad = cap(nuevoArray)
 	pila.datos = nuevoArray
 	//fmt.Println(pila)
