@@ -31,6 +31,7 @@ func (cola *colaEnlazada[T]) EstaVacia() bool {
 func (cola *colaEnlazada[T]) VerPrimero() T {
 	if cola.EstaVacia() == true {
 		panic("La cola esta vacia")
+
 	}
 	return cola.primero.dato
 
