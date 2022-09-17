@@ -47,4 +47,12 @@ func (cola *colaEnlazada[T]) Encolar(elem T) {
 
 }
 
-//func (cola *colaEnlazada[T]) Desencolar() T {}
+func (cola *colaEnlazada[T]) Desencolar() T {
+	frenteCola := cola.VerPrimero() // Este caso casa los casos de que se quiera desencolar una cola vacia
+	cola.primero = cola.primero.prox
+	if cola.primero == nil { //En caso que desencolar vacie la lista
+		cola.ultimo = nil
+	}
+	return frenteCola
+
+}
