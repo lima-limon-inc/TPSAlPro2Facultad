@@ -107,11 +107,11 @@ func TestLIFO(t *testing.T) {
 func TestVolumen(t *testing.T) {
 	t.Log("Hacemos la prueba de volumen")
 	pila := TDAPila.CrearPilaDinamica[int]()
-	for i := 0; i < 10000; i++ {
+	for i := 0; i <= 10000; i++ {
 		pila.Apilar(i)
 	}
-	for i := 10000; i == 0; i-- {
-		require.EqualValues(t, i, pila.EstaVacia())
+	for i := 10000; i >= 0; i-- {
+		require.EqualValues(t, i, pila.Desapilar())
 	}
 
 }
