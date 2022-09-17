@@ -13,5 +13,6 @@ func TestPilaVacia(t *testing.T) {
 	cola.Encolar(1)
 	cola.Encolar(3)
 	require.EqualValues(t, false, cola.EstaVacia())
+	require.EqualValues(t, 1, cola.VerPrimero())
 	// require.PanicsWithValue(t, "La pila esta vacia", func() { pila.VerTope() })
 }

@@ -28,7 +28,13 @@ func (cola *colaEnlazada[T]) EstaVacia() bool {
 	return cola.primero == nil
 }
 
-// func (cola *colaEnlazada[T]) VerTope() T {}
+func (cola *colaEnlazada[T]) VerPrimero() T {
+	if cola.EstaVacia() == true {
+		panic("La cola esta vacia")
+	}
+	return cola.primero.dato
+
+}
 func (cola *colaEnlazada[T]) Encolar(elem T) {
 	nodoNuevo := nodoCrear(elem) //Creo un nodoNuevo con el dato pasado
 	switch cola.EstaVacia() {
@@ -41,5 +47,4 @@ func (cola *colaEnlazada[T]) Encolar(elem T) {
 
 }
 
-//
 //func (cola *colaEnlazada[T]) Desencolar() T {}

@@ -7,7 +7,7 @@ type Cola[T any] interface {
 
 	// VerPrimero obtiene el valor del primero de la cola. Si está vacía, entra en pánico con un mensaje
 	// "La cola esta vacia".
-	//	VerPrimero() T
+	VerPrimero() T
 
 	// Encolar agrega un nuevo elemento a la cola, al final de la misma.
 	Encolar(T)
