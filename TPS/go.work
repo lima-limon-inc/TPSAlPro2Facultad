@@ -1,0 +1,8 @@
+go 1.19
+
+use (
+	./Cola
+	./ManejoDeMemoria
+	./Pila
+	./TP0
+)
