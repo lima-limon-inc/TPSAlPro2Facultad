@@ -18,13 +18,12 @@ func ej10(arreglo []int) int {
 	}
 }
 
-
-//Expresion recursiva de la funcion:
-//T(n) = 2T(n/2) + O(1)
-//log_{2}2 = 1
-//C = 0
-//C < D
-//Ergo ---> O(n^1) = O(n)
+// Expresion recursiva de la funcion:
+// T(n) = 2T(n/2) + O(1)
+// log_{2}2 = 1
+// C = 0
+// C < D
+// Ergo ---> O(n^1) = O(n)
 func ej8(arreglo []int) int {
 	var min int = arreglo[0]
 	if len(arreglo) == 1 {
@@ -51,7 +50,8 @@ func ej8(arreglo []int) int {
 
 func ej9(arreglo []int, principio int, final int) bool {
 	if principio == final {
-		return true}
+		return true
+	}
 	if len(arreglo) == 1 {
 		return arreglo[0]
 	}
@@ -59,9 +59,9 @@ func ej9(arreglo []int, principio int, final int) bool {
 	var izquierda int = mitad
 	var derecha int = len(arreglo)
 	valorI := ej9(arreglo[:izquierda])
-//		fmt.Println(valorI)
+	//		fmt.Println(valorI)
 	valorD := ej9(arreglo[mitad:derecha])
-//		fmt.Println(valorD)
+	//		fmt.Println(valorD)
 	if valorI && valorD == true {
 		return true
 	} else {
@@ -69,8 +69,26 @@ func ej9(arreglo []int, principio int, final int) bool {
 	}
 }
 
-//Amongus
+
+
+func ej11(arreglo []int, extra int) int {
+	medio := len(arreglo/2)
+	izquierda := arreglo[0:medio]
+	derecha := arreglo[medio:len(arreglo)]
+	var mitad int = len(izquierda) - 1
+	if mitad ==0{
+		return mitad
+} else if derecha[0] == 1{
+		ej11(derecha, mitad)
+	} else if izquierda[0] == 1 && izquierda[mitad]{
+		return extra + mitad
+	}
+
+
+}
+
+// Amongus
 func main() {
-	a := []int{1, 2, 3,4, 5, 6, 7, 8}
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8}
 	fmt.Println(ej9(a))
 }
