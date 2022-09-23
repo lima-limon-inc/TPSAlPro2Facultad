@@ -22,8 +22,14 @@ func TestPilaPocosElementos(t *testing.T) {
 	require.PanicsWithValue(t, "La pila esta vacia", func() { pila.Desapilar() })
 	require.EqualValues(t, true, pila.EstaVacia())
 	pila.Apilar(1)
+	require.EqualValues(t, false, pila.EstaVacia())
+	require.EqualValues(t, 1, pila.VerTope())
 	pila.Apilar(2)
+	require.EqualValues(t, false, pila.EstaVacia())
+	require.EqualValues(t, 2, pila.VerTope())
 	pila.Apilar(3)
+	require.EqualValues(t, false, pila.EstaVacia())
+	require.EqualValues(t, 3, pila.VerTope())
 	pila.Desapilar()
 	pila.Desapilar()
 	pila.Desapilar()
@@ -41,6 +47,7 @@ func TestVolumen(t *testing.T) {
 		require.EqualValues(t, false, pila.EstaVacia())
 	}
 	for i := 10000; i >= 0; i-- {
+		require.EqualValues(t, false, pila.EstaVacia())
 		require.EqualValues(t, i, pila.VerTope())
 		require.EqualValues(t, i, pila.Desapilar())
 	}
