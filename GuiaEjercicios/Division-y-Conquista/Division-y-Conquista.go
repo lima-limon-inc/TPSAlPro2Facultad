@@ -87,8 +87,30 @@ func ej11(arreglo []int, extra int) int {
 
 }
 
+// if f(b) > f(a) --> f(x) = - f(x) Invierto la funcion para que se comporte igual que si f(a) > f(b)
+// if f(a) > f(b) or f(b) > f(a)
+// div y con
+// div y con:
+// c = (b + a) / 2
+// if f(c) == 0 --> return c
+// if f(c) > 0 --> div y con [c:b]
+// if f(c) < 0 --> div y con [a:c]
+func raiz(f(int) int, a int, b int) int {
+	var imagenA int = f(a)
+	var imagenB int = f(b)
+	if (imagenA > 0 && imagenB < 0) || (imagenA < 0 && imagenB > 0) {
+
+
+	}
+}
+
+func polinomio (a int){
+	var rta int = 3 * a
+	return rta
+
+}
+
 // Amongus
 func main() {
-	a := []int{1, 2, 3, 4, 5, 6, 7, 8}
-	fmt.Println(ej9(a))
+	raiz(polinomio(4),4,5)
 }
