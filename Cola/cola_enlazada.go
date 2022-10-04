@@ -29,7 +29,7 @@ func (cola *colaEnlazada[T]) EstaVacia() bool {
 }
 
 func (cola *colaEnlazada[T]) VerPrimero() T {
-	if cola.EstaVacia() == true {
+	if cola.EstaVacia() {
 		panic("La cola esta vacia")
 
 	}
@@ -38,10 +38,9 @@ func (cola *colaEnlazada[T]) VerPrimero() T {
 }
 func (cola *colaEnlazada[T]) Encolar(elem T) {
 	nodoNuevo := nodoCrear(elem) //Creo un nodoNuevo con el dato pasado
-	switch cola.EstaVacia() {
-	case true:
+	if cola.EstaVacia() {
 		cola.primero = nodoNuevo
-	case false:
+	} else {
 		cola.ultimo.prox = nodoNuevo //Hago que el ultimo elemento de la lista apunte a ese nuevo elemento
 	}
 	cola.ultimo = nodoNuevo //Hago que el puntero ultimo apunte a la direccion de nodoNuevo. nodoNuevo es un puntero a un nodo
