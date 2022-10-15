@@ -21,18 +21,22 @@ func TestPilaPocosElementos(t *testing.T) {
 	require.PanicsWithValue(t, "La cola esta vacia", func() { cola.VerPrimero() })
 	require.PanicsWithValue(t, "La cola esta vacia", func() { cola.Desencolar() })
 	require.EqualValues(t, true, cola.EstaVacia())
-	cola.Encolar(1)
-	require.EqualValues(t, false, cola.EstaVacia())
-	require.EqualValues(t, 1, cola.VerPrimero())
-	cola.Encolar(2)
-	require.EqualValues(t, false, cola.EstaVacia())
-	require.EqualValues(t, 1, cola.VerPrimero())
-	cola.Encolar(3)
-	require.EqualValues(t, false, cola.EstaVacia())
-	require.EqualValues(t, 1, cola.VerPrimero())
-	cola.Desencolar()
-	cola.Desencolar()
-	cola.Desencolar()
+	for i := 0; i <= 3; i++ {
+		cola.Encolar(i)
+		require.EqualValues(t, false, cola.EstaVacia())
+		require.EqualValues(t, 0, cola.VerPrimero())
+		cola.Encolar(i)
+		require.EqualValues(t, false, cola.EstaVacia())
+		require.EqualValues(t, 0, cola.VerPrimero())
+		cola.Encolar(i)
+		require.EqualValues(t, false, cola.EstaVacia())
+		require.EqualValues(t, 0, cola.VerPrimero())
+	}
+	for i := 0; i <= 3; i++ {
+		cola.Desencolar()
+		cola.Desencolar()
+		cola.Desencolar()
+	}
 	require.PanicsWithValue(t, "La cola esta vacia", func() { cola.VerPrimero() })
 	require.PanicsWithValue(t, "La cola esta vacia", func() { cola.Desencolar() })
 	require.EqualValues(t, true, cola.EstaVacia())
@@ -58,8 +62,15 @@ func TestVolumen(t *testing.T) {
 	var alfabeto [26]string = [26]string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 	for _, letra := range alfabeto {
 		colaStr.Encolar(letra)
+		require.EqualValues(t, "A", colaStr.VerPrimero())
+		require.EqualValues(t, false, colaStr.EstaVacia())
 	}
-	for i := 0; i < len(alfabeto); i++ {
+	for i := 0; i < len(alfabeto)-1; i++ {
 		require.EqualValues(t, alfabeto[i], colaStr.Desencolar())
+		require.EqualValues(t, alfabeto[i+1], colaStr.VerPrimero())
+		require.EqualValues(t, false, colaStr.EstaVacia())
 	}
+	require.EqualValues(t, alfabeto[25], colaStr.Desencolar())
+	require.PanicsWithValue(t, "La cola esta vacia", func() { cola.VerPrimero() })
+	require.EqualValues(t, true, colaStr.EstaVacia())
 }
